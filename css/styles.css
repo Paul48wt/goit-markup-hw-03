@@ -19,8 +19,20 @@ body {
   letter-spacing: 0.03em;
 }
 
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
 ul {
   list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  padding: 25px 215px;
 }
 
 .logo {
@@ -76,15 +88,19 @@ ul {
 
 /* Section Hero */
 
-.section-hero {
+.hero {
   background-color: #2f303a;
+  padding: 200px 452px;
+  text-align: center;
 }
 .hero-title {
+  width: 696px;
+  margin: 0 auto 30px auto;
   color: #ffffff;
   font-weight: 900;
   font-size: 44px;
   line-height: 1.36;
-  text-align: center;
+
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
@@ -127,6 +143,10 @@ ul {
 /* Button */
 
 .button {
+  display: inline-block;
+  border: 0px solid transparent;
+  border-radius: 4px;
+  padding: 6px 22px;
   color: var(--title-text-color);
   font-family: inherit;
   font-weight: 500;
@@ -142,6 +162,8 @@ ul {
   background-color: var(--accent-color);
 }
 .button.hero-button {
+  display: inline-block;
+  padding: 10px 32px;
   color: #ffffff;
   background-color: var(--accent-color);
   font-weight: 700;

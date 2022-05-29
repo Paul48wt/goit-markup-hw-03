@@ -9,33 +9,52 @@
   --title-text-color: #212121;
   --accent-color: #2196f3;
   --background-color: #ffffff;
+  --text-color: #ffffff;
 }
 body {
-  background: #ffffff;
+  background: var(--background-color);
   color: var(--primary-text-color);
   font-family: roboto, sans-serif;
-  font-size: 14px;
-  line-height: 1.71;
   letter-spacing: 0.03em;
+}
+
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
 }
 
 .container {
   width: 1200px;
-  margin: 0 auto;
   padding-left: 15px;
   padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
 }
-ul {
+
+.list {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .header {
-  padding: 25px 215px;
+  padding: 24px 215px;
+}
+
+.header-line {
+  border-bottom: 1px solid #ececec;
 }
 
 .logo {
+  margin-right: 93px;
   color: var(--accent-color);
   font-family: Raleway, sans-serif;
   font-weight: 700;
@@ -44,16 +63,28 @@ ul {
   text-decoration: none;
 }
 
-.logo-studio {
+.logo .logo-studio {
   color: #000000;
 }
 
 .logo-studio-footer {
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 /* Site nav */
 
+.nav {
+  display: flex;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+}
+
+.site-nav-item:not(:last-child) {
+  margin-right: 50px;
+}
 .site-nav .link {
   color: var(--title-text-color);
   font-weight: 500;
@@ -72,7 +103,7 @@ ul {
   color: var(--accent-color);
 }
 
-.contacts a {
+.contacts-link {
   color: var(--primary-text-color);
   font-weight: 500;
   font-size: 14px;
@@ -81,22 +112,37 @@ ul {
   text-decoration: none;
 }
 
-.contacts a:hover,
-.contacts a:focus {
+.contacts-link:hover,
+.contacts-link:focus {
   color: var(--accent-color);
+}
+
+.container-header {
+  display: flex;
+  align-items: center;
+}
+
+.contacts-list {
+  display: flex;
+  margin-left: auto;
+}
+
+.contacts-item:not(:last-child) {
+  margin-right: 50px;
 }
 
 /* Section Hero */
 
 .hero {
   background-color: #2f303a;
-  padding: 200px 452px;
+  padding-top: 200px;
+  padding-bottom: 200px;
   text-align: center;
 }
 .hero-title {
   width: 696px;
   margin: 0 auto 30px auto;
-  color: #ffffff;
+  color: var(--text-color);
   font-weight: 900;
   font-size: 44px;
   line-height: 1.36;
@@ -107,7 +153,26 @@ ul {
 
 /* Section Features */
 
+.features {
+  padding-top: 94px;
+  padding-bottom: 94px;
+}
+
+.future-list {
+  display: flex;
+}
+
+.future-list-item {
+  width: 270px;
+}
+
+.future-list-item:not(:last-child) {
+  margin-right: 30px;
+}
+
 .future-list .title {
+  margin-top: 0;
+  margin-bottom: 10px;
   color: var(--title-text-color);
   font-weight: 700;
   font-size: 14px;
@@ -115,29 +180,77 @@ ul {
   text-transform: uppercase;
 }
 
+.future-list-text {
+  margin: 0;
+  padding-top: 1px;
+  padding-bottom: 2px;
+  font-size: 14px;
+  line-height: 1.71;
+}
+
 /* Section we */
 
-.section-we-title,
-.section-team-title {
+.we-title,
+.team-title {
+  margin-top: 0;
+  margin-bottom: 50px;
   color: var(--title-text-color);
   font-weight: 700;
   font-size: 36px;
   line-height: 1.2;
   text-align: center;
 }
+.we-list {
+  display: flex;
+}
 
+.we-list-item:not(:last-child) {
+  margin-right: 30px;
+  margin-bottom: 94px;
+}
+
+.no-gap {
+  display: block;
+}
 /* Section Team */
 
-.team-list .title {
+.team {
+  padding-top: 94px;
+  padding-bottom: 94px;
+  background-color: #f5f4fa;
+}
+
+.team-list {
+  display: flex;
+}
+
+.team-list-item {
+  background-color: var(--background-color);
+  /* box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 0px 0px 4px 4px; */
+}
+
+.team-list-item:not(:last-child) {
+  margin-right: 30px;
+}
+
+.team-list-title {
+  margin-top: 30px;
+  margin-bottom: 10px;
   color: var(--title-text-color);
   font-weight: 500;
   font-size: 16px;
   line-height: 1.18;
+  text-align: center;
 }
 
 .team-position {
   font-size: 16px;
   line-height: 1.18;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 30px;
 }
 
 /* Button */
@@ -164,7 +277,7 @@ ul {
 .button.hero-button {
   display: inline-block;
   padding: 10px 32px;
-  color: #ffffff;
+  color: var(--text-color);
   background-color: var(--accent-color);
   font-weight: 700;
   font-size: 16px;
@@ -172,24 +285,87 @@ ul {
   letter-spacing: 0.06em;
 }
 
+.button.hero-button:hover,
+.button.hero-button:focus {
+  background-color: #188ce8;
+}
+
 /* Portfolio Page*/
 
-.portfolio-list .title {
+.portfolio {
+  padding-top: 94px;
+  padding-bottom: 94px;
+}
+
+.button-list {
+  display: flex;
+  justify-content: center;
+}
+
+.button-list-item:not(:last-child) {
+  margin-right: 8px;
+  margin-bottom: 34px;
+}
+
+.portfolio-list-title {
   color: var(--title-text-color);
   font-weight: 700;
   font-size: 18px;
   line-height: 2;
   letter-spacing: 0.06em;
+  margin-top: 20px;
+  margin-bottom: 0;
+  padding-left: 24px;
 }
 
-.portfolio-list p {
+.portfolio-list-text {
   font-size: 16px;
   line-height: 1.88;
+  margin-top: 4px;
+  margin-bottom: 0;
+  padding-left: 24px;
+  padding-bottom: 20px;
 }
 
+.portfolio-list {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+}
+
+.portfolio-list-item {
+  width: 370px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.portfolio-list-item {
+  margin-right: 30px;
+}
+
+.portfolio-list-item:nth-child(3n) {
+  margin-right: 0;
+}
+
+.portfolio-list-item:nth-child(-n + 6) {
+  margin-bottom: 30px;
+}
+
+/* .portfolio-list-item:not(:last-child) {
+  margin-right: 30px;
+} */
+
 /* Footer */
-footer {
+
+.footer {
+  padding-top: 60px;
+  padding-bottom: 60px;
   background-color: #2f303a;
+}
+
+.logo-futer.logo {
+  display: block;
+  margin-right: 0;
+  margin-bottom: 20px;
 }
 
 .address {
@@ -199,11 +375,14 @@ footer {
   text-decoration: none;
 }
 
-.address-city {
-  color: #ffffff;
+.address .address-city {
+  display: inline-block;
+  margin: 0;
+  color: var(--text-color);
 }
 
-.address-mail {
+.address .address-mail {
+  display: inline-block;
   color: rgba(255, 255, 255, 0.6);
 }
 
@@ -212,11 +391,16 @@ footer {
   color: var(--accent-color);
 }
 
-.address-tel {
+.address .address-tel {
+  display: inline-block;
   color: rgba(255, 255, 255, 0.6);
 }
 
 .address-tel:hover,
 .address-tel:focus {
   color: var(--accent-color);
+}
+
+.address-list:not(:last-child) {
+  margin-bottom: 9px;
 }
